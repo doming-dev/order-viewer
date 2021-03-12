@@ -1,0 +1,452 @@
+.viewer-container {
+  /* border: 1px solid rgba(73, 85, 110, 0.664); */
+  /* border-radius: 2px; */
+  height: 100%;
+  padding-top: 10px;
+}
+
+/* HEADERS / CAPTIONS */
+.caption {
+  font-weight: bold;
+  color: #d35400;
+}
+
+img {
+  height: 32px;
+  width: auto;
+  margin: 3px;
+  vertical-align: middle;
+}
+
+.print-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.print-btn {
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: white;
+  font-family: "Poppins";
+  font-weight: bold;
+}
+
+.print-btn > img {
+  height: 24px;
+  width: auto;
+}
+
+div[class*="grid"] {
+  margin-bottom: 10px;
+}
+
+.order-number {
+  color: rgb(33, 55, 61);
+  margin: auto;
+  width: 80%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* GENERAL INFO */
+.grid1 {
+  text-align: start;
+  margin: auto;
+  width: 80%;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+
+  display: grid;
+  /* justify-items: start;
+  align-items: stretch; */
+  border: 1px solid rgb(209, 209, 209);
+  grid-template-columns: 0.9fr 1fr;
+  grid-template-rows: repeat(7, auto);
+  grid-template-areas:
+    "order-label order-field"
+    "po-label po-field"
+    "created-label created-field"
+    "csr-label csr-field"
+    "whse-label whse-field"
+    "bill-label bill-field"
+    "ship-label ship-field";
+}
+
+.csr-link {
+  text-decoration: none;
+  color: #3498db;
+}
+
+.csr-link:visited {
+  color: #3498db;
+}
+
+.bill-field {
+  text-align: start;
+  margin-bottom: 10px;
+}
+
+.ship-field {
+  text-align: start;
+}
+
+div[class*="grid"] > div {
+  font-size: 0.85rem;
+}
+
+div[class^="label"],
+div[class*="-label"] {
+  font-weight: bold;
+}
+
+.po-label {
+  grid-area: po-label;
+}
+
+.po-field {
+  grid-area: po-field;
+}
+
+.order-label {
+  grid-area: order-label;
+}
+
+.order-field {
+  grid-area: order-field;
+}
+
+.created-label {
+  grid-area: created-label;
+}
+
+.created-field {
+  grid-area: created-field;
+}
+
+.csr-label {
+  grid-area: csr-label;
+}
+
+.csr-field {
+  grid-area: csr-field;
+}
+
+.whse-label {
+  grid-area: whse-label;
+}
+
+.whse-field {
+  grid-area: whse-field;
+}
+
+.bill-field {
+  grid-area: bill-field;
+}
+
+.ship-field {
+  grid-area: ship-field;
+}
+
+.bill-label {
+  grid-area: bill-label;
+}
+
+.ship-label {
+  grid-area: ship-label;
+}
+
+/* ITEMS */
+.item-container {
+  font-size: 0.85rem;
+  margin: auto;
+  width: 80%;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 4px;
+  display: grid;
+  justify-items: start;
+  align-items: stretch;
+  border: 1px solid rgb(209, 209, 209);
+  grid-template-columns: 0.7fr 1fr;
+  grid-template-rows: repeat(5, auto);
+  grid-template-areas:
+    "part-label part-field"
+    "descr-label descr-field"
+    "qty-label qty-field"
+    "uPrice-label uPrice-field"
+    "price-label price-field";
+}
+
+.item-parent-container {
+  font-size: 0.85rem;
+  margin: auto;
+  width: 80%;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 4px;
+  border: 1px solid rgb(209, 209, 209);
+}
+
+.part-link {
+  text-decoration: none;
+  color: #3498db;
+}
+
+.part-link:visited {
+  color: #3498db;
+}
+
+.item-table {
+  width: 100%;
+}
+
+.item-container > div[class*="field"] {
+  text-align: start;
+}
+
+.part-label {
+  grid-area: part-label;
+}
+
+.part-field {
+  grid-area: part-field;
+}
+
+.descr-label {
+  grid-area: descr-label;
+}
+
+.descr-field {
+  grid-area: descr-field;
+}
+
+.qty-label {
+  grid-area: qty-label;
+}
+
+.qty-field {
+  grid-area: qty-field;
+}
+
+.uPrice-label {
+  grid-area: uPrice-label;
+}
+
+.uPrice-field {
+  grid-area: uPrice-field;
+}
+
+.price-label {
+  grid-area: price-label;
+}
+
+.price-field {
+  grid-area: price-field;
+}
+
+/* PAYMENT INFO */
+.payment-grid {
+  text-align: start;
+  margin: auto;
+  width: 80%;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+
+  display: grid;
+  justify-items: start;
+  align-items: stretch;
+  border: 1px solid rgb(209, 209, 209);
+  grid-template-columns: 0.7fr 1fr;
+  grid-template-rows: repeat(5, auto);
+  grid-template-areas:
+    "terms-label terms-field"
+    "sub-label sub-field"
+    "tFreight-label tFreight-field"
+    "tax-label tax-field"
+    "total-label total-field";
+}
+
+.terms-label {
+  grid-area: terms-label;
+}
+.terms-field {
+  grid-area: terms-field;
+}
+
+.sub-label {
+  grid-area: sub-label;
+}
+
+.sub-field {
+  grid-area: sub-field;
+}
+
+.tFreight-label {
+  grid-area: tFreight-label;
+}
+
+.tFreight-field {
+  grid-area: tFreight-field;
+}
+
+.tax-label {
+  grid-area: tax-label;
+}
+
+.tax-field {
+  grid-area: tax-field;
+}
+
+.total-label {
+  grid-area: total-label;
+}
+
+.total-field {
+  grid-area: total-field;
+}
+
+/* SHIPMENTS */
+.shipment-container {
+  text-align: start;
+  font-size: 0.85rem;
+  margin: auto;
+  width: 80%;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 4px;
+  display: grid;
+  justify-items: start;
+  align-items: stretch;
+  border: 1px solid rgb(209, 209, 209);
+  grid-template-columns: 0.9fr 1fr;
+  grid-template-rows: repeat(4, auto);
+  grid-template-areas:
+    "shipdate-label shipdate-field"
+    "shipvia-label shipvia-field"
+    "tracking-label tracking-field"
+    "freight-label freight-field";
+}
+
+.tracking {
+  text-decoration: none;
+  color: #3498db;
+}
+
+.tracking:visited {
+  color: #3498db;
+}
+
+.shipdate-label {
+  grid-area: shipdate-label;
+}
+.shipdate-field {
+  grid-area: shipdate-field;
+}
+.shipvia-label {
+  grid-area: shipvia-label;
+}
+.shipvia-field {
+  grid-area: shipvia-field;
+}
+.tracking-label {
+  grid-area: tracking-label;
+}
+.tracking-field {
+  grid-area: tracking-field;
+}
+.freight-label {
+  grid-area: freight-label;
+}
+.freight-field {
+  grid-area: freight-field;
+}
+
+@media all and (min-width: 550px) {
+  .order-number {
+    color: rgb(33, 55, 61);
+    margin: auto;
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .grid1 {
+    margin: auto;
+    width: 80%;
+    background-color: rgba(241, 241, 241, 0.26);
+    border-radius: 5px;
+    display: grid;
+    justify-items: normal;
+    align-items: stretch;
+    border: 1px solid rgb(214, 214, 214);
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+      "po-label order-label  created-label csr-label whse-label"
+      "po-field order-field  created-field csr-field whse-field"
+      "bill-label bill-label  . ship-label ship-label"
+      "bill-field bill-field  . ship-field ship-field";
+  }
+
+  .bill-field {
+    margin-bottom: 0px;
+  }
+
+  .item-parent-container {
+    width: 80%;
+  }
+
+  .payment-grid {
+    display: grid;
+    justify-items: center;
+    align-items: stretch;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+      "terms-label sub-label tFreight-label tax-label total-label"
+      "terms-field sub-field tFreight-field tax-field total-field";
+  }
+
+  .shipment-container {
+    display: grid;
+    justify-items: center;
+    align-items: stretch;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+      "shipdate-label shipvia-label tracking-label freight-label"
+      "shipdate-field shipvia-field tracking-field freight-field";
+  }
+
+  .grid1 > div {
+    padding: 5px;
+    text-align: start;
+  }
+}
+
+@media all and (min-width: 900px) {
+  .order-number {
+    width: 50%;
+  }
+
+  .grid1 {
+    width: 50%;
+  }
+
+  .item-parent-container {
+    width: 50%;
+  }
+
+  .payment-grid {
+    width: 50%;
+  }
+
+  .shipment-container {
+    width: 50%;
+  }
+}

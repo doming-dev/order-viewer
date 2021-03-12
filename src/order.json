@@ -1,0 +1,64 @@
+{
+  "ShipComplete": true,
+  "ShippingMethod": "MPK-UPS Ground",
+  "PaymentTerms": "N30",
+  "CreditCard": null,
+  "ShipZip": "917222807",
+  "ShipState": "CA",
+  "ShipCity": "Covina",
+  "ShipAddress2": "",
+  "ShipAddress1": "282 E Benbow St",
+  "ShipName": "Acme Covina",
+  "BillZip": "900861416",
+  "Shipments": [
+    {
+      "ShipKey": 5131208,
+      "ShipmentNo": "0004033497",
+      "Packed": "2021-02-25T15:48:43.773",
+      "FreightAmount": 17.1,
+      "ItemId": "171",
+      "Description": "Latch Complete",
+      "QtyOrdered": 1,
+      "QtyShip": 1,
+      "Box": 1,
+      "Tracking": "1Z8152100353830474",
+      "Size": "13x5x5"
+    }
+  ],
+  "BillState": "CA",
+  "BillAddress2": "",
+  "BillAddress1": "PO Box 861447",
+  "BillName": "Acme Refrigeration",
+  "Warehouse": "MPK",
+  "SalesTax": 0.0,
+  "SalesAmount": 49.25,
+  "CSR": "VictorL",
+  "Created": "2021-02-25T15:46:47.283",
+  "PO": "",
+  "OpKey": 4587081,
+  "SoKey": 2865342,
+  "TranId": "SO-0002863754",
+  "BillCity": "Los Angeles",
+  "Items": [
+    {
+      "LineNumber": 1,
+      "PartNumber": "171",
+      "Description": "Latch Complete",
+      "QtyOrdered": 1,
+      "QtyOnBO": 0,
+      "QtyShipped": 0,
+      "Price": 49.25,
+      "UnitPrice": 49.25
+    },
+    {
+      "LineNumber": 2,
+      "PartNumber": "172-01",
+      "Description": "Latch Complete W/ Key Lock",
+      "QtyOrdered": 3,
+      "QtyOnBO": 0,
+      "QtyShipped": 0,
+      "Price": 171.75,
+      "UnitPrice": 57.25
+    }
+  ]
+}

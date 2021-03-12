@@ -1,25 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import "./styles.css";
+import "./order-viewer-styles.css";
+import order from "./order.json";
+import React from "react";
+import OrderViewer from "./order-viewer";
+import Print from "./print";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Print />
+      <OrderViewer order={order} />
     </div>
   );
 }
-
-export default App;
