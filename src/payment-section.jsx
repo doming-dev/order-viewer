@@ -1,11 +1,12 @@
 import React from "react";
 import helper from "./helpers";
+import payLogo from './payment.png';
 
 export default function PaymentSection({ order }) {
   return (
-    <>
+    <div className="section">
       <div className="caption">
-        <img className="payment-logo" src={require("./payment.png")} alt="" />
+        <img className="payment-logo" src={payLogo} alt="" />
         Payment Information
       </div>
 
@@ -32,6 +33,6 @@ export default function PaymentSection({ order }) {
           </b>
         </div>
       </div>
-    </>
+    </div>
   );
 }

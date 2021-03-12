@@ -11,6 +11,11 @@
   color: #d35400;
 }
 
+
+.section{
+  margin-bottom: 20px;
+}
+
 img {
   height: 32px;
   width: auto;
@@ -21,6 +26,7 @@ img {
 .print-container {
   display: flex;
   justify-content: flex-end;
+  margin: 10px;
 }
 
 .print-btn {

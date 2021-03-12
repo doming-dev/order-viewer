@@ -1,14 +1,15 @@
 import React from "react";
 import helper from "./helpers";
+import genLogo from './general.png';
 
 export default function General({ order }) {
   const date = helper.GetDateString(order.Created);
   const purchaseOrder = order.PO ? order.PO : "- - - - -";
 
   return (
-    <>
+    <div className="section">
       <div className="caption">
-        <img className="general-logo" src={require("./general.png")} alt="" />
+        <img className="general-logo" src={genLogo} alt="" />
         General Information
       </div>
       <div className="grid1">
@@ -49,6 +50,6 @@ export default function General({ order }) {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
