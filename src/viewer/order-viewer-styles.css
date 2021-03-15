@@ -30,11 +30,12 @@ img {
 }
 
 .print-btn {
-  border: 1px solid black;
+  border: 1px solid rgb(141, 141, 141);
   border-radius: 3px;
   background-color: white;
   font-family: "Poppins";
   font-weight: bold;
+  padding-right:10px;
 }
 
 .print-btn > img {

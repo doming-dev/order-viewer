@@ -1,0 +1,118 @@
+.os__container{
+    font-size: .9rem;
+    background-color: #ecf0f1;
+}
+
+.os__search-container{
+    width:100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin:10px 10px 0 10px;
+}
+
+.os__search-input{
+    width:75%;
+    height:35px;
+    border:1px solid  rgb(192, 192, 192);
+    border-radius: 3px;
+    margin: 0 3px 0 -10px;
+    font-size: 1.3rem;
+    color: #2c3e50;
+}
+
+.os__search-input::placeholder{
+    font-family: "Poppins";
+    font-size:0.9rem;
+}
+
+.os__search-logo{
+    height: 30px;
+    width:auto;
+}
+
+.os__search-btn{
+    border: 1px solid rgb(192, 192, 192);
+    border-radius: 5px;
+    background-color: white;
+}
+
+.os__filter-link{
+    color:#3498db;
+    text-decoration: none;
+}
+
+.os__date-list{
+    list-style: none;
+    padding:0;
+    transition: max-height .5s, opacity 0.5s, visibility 0s ease-in;
+}
+
+.os__date-list > li{
+    display:grid;
+    grid-template-columns: 30% 10% 40% 10%;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+    ". radio label .";
+    justify-items:start;
+    text-align: start;
+    border:1px solid rgba(160, 168, 172, 0.39);
+    padding: 5px;
+}
+
+.os__hidden-list{
+    visibility: hidden;
+    opacity: 0;
+    max-height: 0;
+}
+
+.os__visible-list{
+    visibility: visible;
+    opacity: 1;
+    max-height:500px;
+}
+
+.os__date-list>li>input{
+    grid-area: radio;
+}
+
+.os__filter-label{
+    grid-area: label;
+}
+
+.os__order{
+    background-color: white;
+    padding: 10px;
+    border: 1px solid rgb(192, 192, 192);
+    border-radius:3px;
+    margin:2px;
+    cursor: pointer;
+    display:grid;
+    grid-template-columns: 30% 60% 20%;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "order-props items logo";
+    justify-items:stretch;
+    text-align: start;
+
+}
+
+.os__props{
+    grid-area: order-props;
+}
+
+.os__items-container{
+    grid-area: items;
+    display: flex;
+    flex-direction: column;
+}
+
+.os__next-logo{
+    grid-area: logo;
+    width:30px;
+    height:auto;
+}
+
+.os__item{
+    margin-bottom: 10px;
+}

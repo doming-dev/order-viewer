@@ -1,6 +1,4 @@
-import React from "react";
-
-export default {
+const helper = {
   GetDateString: function GetDateString(dateParam) {
     const date = new Date(dateParam);
     return (
@@ -49,3 +47,5 @@ export default {
     }
   }
 };
+
+export default helper;
