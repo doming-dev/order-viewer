@@ -37,8 +37,8 @@
     background-color: white;
 }
 
-.os__filter-link{
-    color:#3498db;
+.os__link{
+    color:#0984e3;
     text-decoration: none;
 }
 
@@ -60,13 +60,13 @@
     padding: 5px;
 }
 
-.os__hidden-list{
+.os__hidden{
     visibility: hidden;
     opacity: 0;
     max-height: 0;
 }
 
-.os__visible-list{
+.os__visible{
     visibility: visible;
     opacity: 1;
     max-height:500px;
@@ -88,7 +88,7 @@
     margin:2px;
     cursor: pointer;
     display:grid;
-    grid-template-columns: 30% 60% 20%;
+    grid-template-columns: 30% 60% 10%;
     grid-template-rows: auto;
     grid-template-areas: 
     "order-props items logo";
@@ -115,4 +115,97 @@
 
 .os__item{
     margin-bottom: 10px;
+}
+
+.os__additional{
+    visibility: hidden;
+    opacity: 0;
+    max-height: 0;
+}
+
+.os__button-list{
+    display:flex;
+    flex-direction: column;
+    width: 250px;
+    grid-area: buttons;
+    margin-right:15px;
+    margin-bottom: 15px;
+}
+
+.os__button{
+    font-family: "Poppins";
+    margin: 2px;
+    cursor:pointer;
+    height: 30px;
+    width: 100%;
+}
+
+@media all and (min-width: 550px){
+    .os__order{
+        padding:0;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 35px 60px 1fr;
+        grid-template-areas: 
+        "labels labels labels labels"
+        "order-props order-props order-props order-props"
+        "items items items buttons";
+        cursor: default;
+        margin: 40px;
+        font-size: .85rem;
+    }
+
+    .os__props{
+        margin:0;
+        padding:5px;
+        padding-left:10px;
+        background-color: #dfe6e9;
+        margin-bottom: 20px;
+
+        display:grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr;
+        justify-items: start;
+        align-items: start;
+        grid-area: order-props;
+    }
+
+    .os__labels{
+        margin:0;
+        padding-left:10px;
+        background-color: #dfe6e9;
+        font-weight: 200;
+
+        display:grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr;
+        justify-items: start;
+        align-items: center;
+        visibility: visible;
+        opacity: 1;
+        max-height: auto;
+        grid-area: labels;
+    }
+
+    .os__order-details{
+        justify-self: end;
+        padding-right:5px;
+    }
+
+    .os__additional{
+        visibility: visible;
+        opacity: 1;
+        max-height: none;
+    }
+
+    .os__next-logo{
+        display: none;
+        visibility: hidden;
+        opacity: 0;
+        max-height: 0;    
+    }
+
+    .os__package-logo{
+        width: 64px;
+        height: 64px;
+    }
 }
