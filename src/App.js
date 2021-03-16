@@ -40,7 +40,7 @@ export default function App() {
     <BrowserRouter>
       <MainLayout>
           <Switch>
-              <Route exact path="/" component={() => <OrderSelector orders={orders} />} />
+              <Route exact path="/orders" component={() => <OrderSelector orders={orders} />} />
               <Route exact path="/OrderView/:op" component={OrderViewer} />
           </Switch>
       </MainLayout>

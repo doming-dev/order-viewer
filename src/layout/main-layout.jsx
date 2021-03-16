@@ -1,10 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './main-layout-styles.css';
 import menuLogo from './menu.png';
 import custLogo from './customer.png';
+import { useLocation } from 'react-router-dom';
 
 export default function MainLayout({  children }){
     const [isMenuVisible, setIsMenuVisible] = useState(false);
+    const [selectedItem, setSelectedItem] = useState("");
+    const location = useLocation();
+
+    useEffect(() => {
+        if(!location.pathname) return;
+        if(location.pathname.includes("/orders")){
+            setSelectedItem("orders");
+        } 
+        if(location.pathname.includes("/quotes")){
+            setSelectedItem("quotes");
+        } 
+        if(location.pathname.includes("/activity")){
+            setSelectedItem("activity");
+        } 
+        if(location.pathname.includes("/profile")){
+            setSelectedItem("profile");
+        } 
+        if(location.pathname.includes("/pricing")){
+            setSelectedItem("pricing");
+        } 
+    },[location])
 
     function handleMenuClick(e){
         setIsMenuVisible(!isMenuVisible);
@@ -33,11 +55,11 @@ export default function MainLayout({  children }){
                     <img onClick={handleMenuClick} className="ml__menu-img" src={menuLogo} alt="" />
                 </div>
                 <ul className={isMenuVisible ? "ml__nav-list ml__visible" : "ml__nav-list ml__hidden"}>
-                    <li onClick={handleNavLinkClick} ><a id="orders" className="ml__nav-link" href="/">My Orders</a></li>
-                    <li onClick={handleNavLinkClick} ><a id="quotes" className="ml__nav-link" href="/">My Quotes</a></li>
-                    <li onClick={handleNavLinkClick}><a id="activity" className="ml__nav-link" href="/">Recent Activity</a></li>
-                    <li onClick={handleNavLinkClick}><a id="profile" className="ml__nav-link" href="/">My Profile</a></li>
-                    <li onClick={handleNavLinkClick}><a id="pricing" className="ml__nav-link" href="/">Pricing List</a></li>
+                    <li onClick={handleNavLinkClick} ><a id="orders" className={(selectedItem === "orders" ? "ml__selected " : "") + " ml__nav-link"} href="/">My Orders</a></li>
+                    <li onClick={handleNavLinkClick} ><a id="quotes" className={(selectedItem === "quotes" ? "ml__selected " : "") + " ml__nav-link"} href="/">My Quotes</a></li>
+                    <li onClick={handleNavLinkClick}><a id="activity" className={(selectedItem === "activity" ? "ml__selected " : "") + " ml__nav-link"} href="/">Recent Activity</a></li>
+                    <li onClick={handleNavLinkClick}><a id="profile" className={(selectedItem === "profile" ? "ml__selected " : "") + " ml__nav-link"} href="/">My Profile</a></li>
+                    <li onClick={handleNavLinkClick}><a id="pricing" className={(selectedItem === "pricing" ? "ml__selected " : "") + " ml__nav-link"} href="/">Pricing List</a></li>
                     <li onClick={handleNavLinkClick}><a id="out" className="ml__nav-link" href="/">Log Off</a></li>
                 </ul>
             </div>
