@@ -1,18 +1,18 @@
-.viewer-container {
-  /* border: 1px solid rgba(73, 85, 110, 0.664); */
-  /* border-radius: 2px; */
+/*MAIN CONTAINER*/
+.ov__viewer-container {
   height: 100%;
   padding-top: 10px;
+  width:auto;
 }
 
 /* HEADERS / CAPTIONS */
-.caption {
+.ov__caption {
   font-weight: bold;
   color: #d35400;
 }
 
 
-.section{
+.ov__section{
   margin-bottom: 20px;
 }
 
@@ -47,7 +47,9 @@ div[class*="grid"] {
   margin-bottom: 10px;
 }
 
-.order-number {
+
+
+.ov__order-number {
   color: rgb(33, 55, 61);
   margin: auto;
   width: 80%;
@@ -55,20 +57,19 @@ div[class*="grid"] {
   justify-content: flex-start;
 }
 
+
 /* GENERAL INFO */
-.grid1 {
+.ov__general-grid {
   text-align: start;
   margin: auto;
   width: 80%;
   background-color: white;
   border-radius: 5px;
   padding: 10px;
-
+  font-size:0.9rem;
   display: grid;
-  /* justify-items: start;
-  align-items: stretch; */
   border: 1px solid rgb(209, 209, 209);
-  grid-template-columns: 0.9fr 1fr;
+  grid-template-columns: 0.8fr 1.4fr;
   grid-template-rows: repeat(7, auto);
   grid-template-areas:
     "order-label order-field"
@@ -271,6 +272,7 @@ div[class*="-label"] {
   grid-template-rows: repeat(5, auto);
   grid-template-areas:
     "terms-label terms-field"
+    "cc-label cc-field"
     "sub-label sub-field"
     "tFreight-label tFreight-field"
     "tax-label tax-field"
@@ -284,6 +286,13 @@ div[class*="-label"] {
   grid-area: terms-field;
 }
 
+.cc-label{
+  grid-area: cc-label;
+}
+
+.cc-field{
+  grid-area: cc-field;
+}
 .sub-label {
   grid-area: sub-label;
 }
@@ -330,7 +339,7 @@ div[class*="-label"] {
   justify-items: start;
   align-items: stretch;
   border: 1px solid rgb(209, 209, 209);
-  grid-template-columns: 0.9fr 1fr;
+  grid-template-columns: 0.7fr 1fr;
   grid-template-rows: repeat(4, auto);
   grid-template-areas:
     "shipdate-label shipdate-field"
@@ -373,19 +382,32 @@ div[class*="-label"] {
   grid-area: freight-field;
 }
 
-@media all and (min-width: 550px) {
-  .order-number {
+@media all and (min-width: 650px) {
+  .ov__viewer-container{
+    background-color: rgb(231, 231, 231);
+    width:80%;
+    margin:auto;
+    padding: 10px;
+  }
+
+  .ov__section{
+    width:98%;
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .ov__order-number {
     color: rgb(33, 55, 61);
-    margin: auto;
-    width: 80%;
+    width: 100%;
     display: flex;
     justify-content: flex-start;
   }
 
-  .grid1 {
+  .ov__general-grid {
     margin: auto;
-    width: 80%;
-    background-color: rgba(241, 241, 241, 0.26);
+    width: 98%;
+    background-color: white;
     border-radius: 5px;
     display: grid;
     justify-items: normal;
@@ -405,21 +427,23 @@ div[class*="-label"] {
   }
 
   .item-parent-container {
-    width: 80%;
+    width: 98%;
   }
 
   .payment-grid {
+    width: 98%;
     display: grid;
     justify-items: center;
     align-items: stretch;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: auto;
     grid-template-rows: auto;
     grid-template-areas:
-      "terms-label sub-label tFreight-label tax-label total-label"
-      "terms-field sub-field tFreight-field tax-field total-field";
+      "terms-label cc-label sub-label tFreight-label tax-label total-label"
+      "terms-field cc-field sub-field tFreight-field tax-field total-field";
   }
 
   .shipment-container {
+    width: 98%;
     display: grid;
     justify-items: center;
     align-items: stretch;
@@ -430,30 +454,57 @@ div[class*="-label"] {
       "shipdate-field shipvia-field tracking-field freight-field";
   }
 
-  .grid1 > div {
+  .ov__general-grid > div {
     padding: 5px;
     text-align: start;
   }
 }
 
 @media all and (min-width: 900px) {
-  .order-number {
-    width: 50%;
+  .ov__viewer-container{
+    background-color: rgb(231, 231, 231);
+    width:70%;
+    margin:auto;
+    padding: 10px;
   }
 
-  .grid1 {
-    width: 50%;
+  .ov__section{
+    width:98%;
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ov__order-number {
+    width:98%;
+  }
+
+  .ov__general-grid {
+    width:98%;
   }
 
   .item-parent-container {
-    width: 50%;
+    width:98%;
   }
 
   .payment-grid {
-    width: 50%;
+    width:98%;
   }
 
   .shipment-container {
-    width: 50%;
+    width:98%;
+  }
+}
+
+
+@media all and (min-width: 1200px) {
+  .ov__viewer-container{
+    width:60%;
+  }
+}
+
+@media all and (min-width: 1200px) {
+  .ov__viewer-container{
+    width:50%;
   }
 }

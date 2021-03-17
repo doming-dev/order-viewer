@@ -15,7 +15,7 @@ export default function Shipment({ ship, order }) {
       <div className="tracking-label">Tracking</div>
       <div className="tracking-field">
         {isUPS ? (
-          <a className="tracking" href="/">
+          <a className="tracking" href={`https://www.ups.com/track?loc=en_US&tracknum=${ship.Tracking}&requester=WT/trackdetails`}>
             {ship.Tracking}
           </a>
         ) : (

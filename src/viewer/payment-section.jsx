@@ -3,9 +3,9 @@ import helper from "./helpers";
 import payLogo from './payment.png';
 
 export default function PaymentSection({ order }) {
-  return (
-    <div className="section">
-      <div className="caption">
+  return ( 
+    <div className="ov__section">
+      <div className="ov__caption">
         <img className="payment-logo" src={payLogo} alt="" />
         Payment Information
       </div>
@@ -13,6 +13,14 @@ export default function PaymentSection({ order }) {
       <div className="payment-grid">
         <div className="terms-label">Terms</div>
         <div className="terms-field">{order.PaymentTerms} </div>
+        {order.PaymentTerms === "CrCard" ? 
+              <>
+                <div className="cc-label"></div>
+                <div className="cc-field">{order.CreditCard}</div>
+              </> : null
+        }
+        {/* <div className="cc-label"></div>
+        <div className="cc-field">order.CreditCard</div> */}
         <div className="sub-label">Sub Total</div>
         <div className="sub-field">${helper.GetSubTotal(order.Items)} </div>
         <div className="tFreight-label">Freight</div>

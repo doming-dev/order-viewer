@@ -1,31 +1,36 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import GeneralSection from "./general-section";
 import ItemSection from "./item-section";
 import PaymentSection from "./payment-section";
 import ShipmentSection from "./shipment-section";
 import OrderNumber from "./ordernumber";
-import ord from './order.json';
 import { useParams } from 'react-router-dom';
+import useFetch from '../hooks/useFetch';
+import AppSettings from '../AppSettings';
 
 export default function OrderViewer() {
-  const [order, setOrder] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
   const { op } = useParams();
 
-  useEffect(() => {
-    console.log("OP from OrderViewer", op);
-    setOrder(ord);
-    setIsLoading(false);
-  }, [])
+  const url = AppSettings.GetOrderDetailURL(op);
+  const options = {};
+  options.headers = {};
+  options.headers["Content-Type"] = "application/json";
+  const data = useFetch(url, options, [url], null, false);
+  console.log(data);
 
   return (
-    isLoading ? <div></div> :
-    <div className="viewer-container">
-      <OrderNumber order={order} />
-      <GeneralSection order={order} />
-      <ItemSection order={order} />
-      <PaymentSection order={order} />
-      <ShipmentSection order={order} />
+    <div className="ov__viewer-container">
+      {data.error && <div>An error has occurred while trying to load your order</div>}
+      {data.isLoading && <div>Loading..</div>}
+      {data.response && 
+        <>
+            <OrderNumber order={data.response}/>
+            <GeneralSection order={data.response} />
+            <ItemSection order={data.response} />
+            <PaymentSection order={data.response} />
+            {data.response.Shipments.length > 0 && <ShipmentSection order={data.response}/>}
+        </>
+      }
     </div>
   );
 }

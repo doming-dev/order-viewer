@@ -13,6 +13,10 @@ const helper = {
   },
 
   GetTotalFreight: function GetTotalFreight(shipments) {
+    if(shipments.length === 0){
+      return (0).toFixed(2);
+    }
+
     const total = shipments
       .map((x) => x.FreightAmount)
       .reduce((acc, x) => acc + x)

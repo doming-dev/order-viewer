@@ -27,6 +27,7 @@ export default function useFetch(url, options, dependencies, callback, disabled)
           }
         })
         .catch(err => {
+          console.log(err);
           err.text().then(text => {
             const result = { status: err.status, message: text ? text : err.statusText }
             console.log(`ERROR on ${url}`, err, result);

@@ -61,12 +61,17 @@
 }
 
 .ml__selected{
-    border-bottom: 3px solid #3498db;
-    border-top: 3px solid #3498db;
     color:orange;
 }
 
+
 @media all and (min-width: 750px){
+    .ml__selected{
+        border-bottom: 3px solid #3498db;
+        border-top: 3px solid #3498db;
+        color:orange;
+    }
+
     .ml__menu-img{
         visibility:hidden;
         opacity: 0;

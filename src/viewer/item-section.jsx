@@ -4,8 +4,8 @@ import cartLogo from './cart.png';
 
 export default function ItemSection({ order }) {
   return (
-    <div className="section">
-      <div className="caption">
+    <div className="ov__section">
+      <div className="ov__caption">
         <img className="item-logo" src={cartLogo} alt="" />
         Item Information
       </div>

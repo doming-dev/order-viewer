@@ -9,7 +9,7 @@ export default function ResponsiveCardTable({ headers, fields }) {
   }, []);
 
   function determineWrapper() {
-    setUseCard(window.innerWidth <= 500);
+    setUseCard(window.innerWidth <= 650);
   }
 
   window.addEventListener("resize", determineWrapper);

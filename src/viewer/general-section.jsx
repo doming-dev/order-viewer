@@ -3,25 +3,30 @@ import helper from "./helpers";
 import genLogo from './general.png';
 
 export default function General({ order }) {
-  const date = helper.GetDateString(order.Created);
-  const purchaseOrder = order.PO ? order.PO : "- - - - -";
+  
+  function handleEmailClick(e){
+    e.preventDefault();
+    const subject = `Regarding OP-${order.OpKey}`;
+    const url = `https://mail.google.com/mail/?view=cm&fs=1&to=${order.CSR.toLowerCase()}@caseparts.com&su=${subject}`;
+    window.open(url, order.OpKey);
+  }
 
   return (
-    <div className="section">
-      <div className="caption">
+    <div className="ov__section">
+      <div className="ov__caption">
         <img className="general-logo" src={genLogo} alt="" />
         General Information
       </div>
-      <div className="grid1">
+      <div className="ov__general-grid">
         <div className="po-label">PO</div>
-        <div className="po-field">{purchaseOrder} </div>
+        <div className="po-field">{order.PO ? order.PO : "- - - - -"} </div>
         <div className="order-label">Quote #</div>
         <div className="order-field">{order.OpKey} </div>
         <div className="created-label">Created</div>
-        <div className="created-field">{date} </div>
+        <div className="created-field">{helper.GetDateString(order.Created)} </div>
         <div className="csr-label">Rep</div>
         <div className="csr-field">
-          <a className="csr-link" href="/">
+          <a className="csr-link" onClick={handleEmailClick} href={`https://mail.google.com/mail/?view=cm&fs=1&to=${order.CSR.toLowerCase()}@caseparts.com}`}>
             {order.CSR.toLowerCase()}@caseparts.com
           </a>
         </div>

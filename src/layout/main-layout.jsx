@@ -1,13 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './main-layout-styles.css';
 import menuLogo from './menu.png';
 import custLogo from './customer.png';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
+import AppContext from '../context/AppContext';
+
 
 export default function MainLayout({  children }){
     const [isMenuVisible, setIsMenuVisible] = useState(false);
     const [selectedItem, setSelectedItem] = useState("");
     const location = useLocation();
+    const history = useHistory();
+    const context = useContext(AppContext);
 
     useEffect(() => {
         if(!location.pathname) return;
@@ -41,11 +45,13 @@ export default function MainLayout({  children }){
             id = e.target.id;
         }
         
+        history.push(`/${id}`);
         console.log(id);
     }
 
     return (
         <div className="App">
+            {context.custKey > 0 &&
             <div className="ml__nav-container">
                 <div className="ml__top" >
                     <div className="ml__cust">
@@ -62,7 +68,7 @@ export default function MainLayout({  children }){
                     <li onClick={handleNavLinkClick}><a id="pricing" className={(selectedItem === "pricing" ? "ml__selected " : "") + " ml__nav-link"} href="/">Pricing List</a></li>
                     <li onClick={handleNavLinkClick}><a id="out" className="ml__nav-link" href="/">Log Off</a></li>
                 </ul>
-            </div>
+            </div> }
             {children}
         </div>
     )
