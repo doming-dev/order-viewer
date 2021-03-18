@@ -22,7 +22,6 @@
     font-size: 1.2rem;
     margin: 10px;
     font-weight: bold;
-    color:#2980b9;
 }
 
 .ml__menu-img{
@@ -34,6 +33,8 @@
     list-style: none;
     padding:0;
     margin:0;
+    font-size:.95rem;
+    font-weight: bold;
     transition: max-height .75s, opacity 0.5s, visibility 0s ease-in;
 }
 
@@ -67,8 +68,6 @@
 
 @media all and (min-width: 750px){
     .ml__selected{
-        border-bottom: 3px solid #3498db;
-        border-top: 3px solid #3498db;
         color:orange;
     }
 
@@ -99,8 +98,6 @@
 
     .ml__nav-link:hover{
         color:orange;
-        border-bottom: 3px solid #3498db;
-        border-top: 3px solid #3498db;
     }
 
     .ml__nav-container{

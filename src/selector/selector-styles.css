@@ -1,6 +1,6 @@
 .os__container{
     font-size: .9rem;
-    background-color: #ecf0f1;
+    background-color: #ffffff;
 }
 
 .os__search-container{
@@ -138,9 +138,13 @@
     cursor:pointer;
     height: 30px;
     width: 100%;
+    background-color: white;
+    border-radius: 3px;
+    border: 1px solid rgb(109, 109, 109);
+    font-weight:bold;
 }
 
-@media all and (min-width: 550px){
+@media all and (min-width: 600px){
     .os__order{
         padding:0;
         grid-template-columns: repeat(4, 1fr);
@@ -152,13 +156,14 @@
         cursor: default;
         margin: 40px;
         font-size: .85rem;
+        font-weight:bold;
     }
 
     .os__props{
         margin:0;
         padding:5px;
         padding-left:10px;
-        background-color: #dfe6e9;
+        background-color: #dfdfdf;
         margin-bottom: 20px;
 
         display:grid;
@@ -172,7 +177,7 @@
     .os__labels{
         margin:0;
         padding-left:10px;
-        background-color: #dfe6e9;
+        background-color: #dfdfdf;
         font-weight: 200;
 
         display:grid;

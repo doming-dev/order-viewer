@@ -12,6 +12,19 @@ const helper = {
     );
   },
 
+  GetDate(days){
+    const today = new Date();
+    const dateInt = new Date().setDate(today.getDate() + days);
+   
+    const date = new Date(dateInt);
+    const year = date.getFullYear();
+    let month = (1 + date.getMonth()).toString();
+    month = month.length > 1 ? month : '0' + month;
+    let day = date.getDate().toString();
+    day = day.length > 1 ? day : '0' + day;
+    return `${month}-${day}-${year}`;
+  },
+
   GetTotalFreight: function GetTotalFreight(shipments) {
     if(shipments.length === 0){
       return (0).toFixed(2);

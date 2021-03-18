@@ -32,11 +32,12 @@ const AppSettings = {
 		LoginUrl: `${reportApi}/login`,
 		Password: isProd ? "Ja55Mus!c" : "Ja55Mus!c"
 	},
-    GetOrdersURL : (type, custkey, from, to, keywords) => {
+    GetOrdersURL : (type, custkey, from, to, keywords, count) => {
         let url = `${reportApi}/orders/?type=${type}&custkey=${custkey}`;
         url += from ? `&from=${from}` : '';
         url += to ? `&to=${to}` : '';
         url += keywords ? `&keywords=${keywords}` : '';
+        url += count ? `&count=${count}` : '';
         return url;
     },
 	GetOrderDetailURL: (op) => {

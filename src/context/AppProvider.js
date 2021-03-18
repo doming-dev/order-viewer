@@ -2,7 +2,7 @@ import AppContext from "./AppContext";
 import React, {useState} from 'react';
 
 function AppProvider({ children }){
-    const [customerKey, setCustomerKey] = useState(1);
+    const [customerKey, setCustomerKey] = useState(0);
     const context = {
         custKey: customerKey,
         setCustKey: setCustomerKey

@@ -45,6 +45,12 @@ export default function MainLayout({  children }){
             id = e.target.id;
         }
         
+        if(id === "out"){
+            localStorage.removeItem("custKey");
+            context.setCustKey(0);
+            history.push("/");
+            return;
+        }
         history.push(`/${id}`);
         console.log(id);
     }
