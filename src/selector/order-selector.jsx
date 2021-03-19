@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react';
-import searchIcon from './search-icon.png';
 import './selector-styles.css';
 import {v4 as uuidv4 } from 'uuid';
 import nextLogo from './next-icon.png';
@@ -10,13 +9,13 @@ import downLogo from './down.png';
 import AppContext from '../context/AppContext';
 import useFetch from '../hooks/useFetch';
 import AppSettings from '../AppSettings';
+import OrderSearch from './order-search';
 
 export default function OrderSelector(){
-    const [isFilterMenuVisible, setIsFilterMenuVisible] = useState(false);
     const history = useHistory();
     const context = useContext(AppContext);
 
-    if(context.custKey === 0){
+    if(context.custKey === 0 || !context.custKey){
         const custKey = localStorage.getItem("custKey");
         if(!custKey)
             history.push("/")
@@ -24,36 +23,20 @@ export default function OrderSelector(){
             context.setCustKey(custKey);
     }
 
+    // const start = helper.GetDate(-30);
+    // const end  = helper.GetDate(+1);
 
-
-    const start = helper.GetDate(-30);
-    const end  = helper.GetDate(+1);
-
-    const url = AppSettings.GetOrdersURL("orders", context.custKey, start, end, null);
+    const url = AppSettings.GetOrdersURL("orders", context.custKey, null, null, null, 30);
     const options = {};
     options.headers = {};
     options.headers["Content-Type"] = "application/json";
     const data = useFetch(url, options, [url], null, false);
     let orders = [];
 
-    const newUrl = AppSettings.GetOrdersURL("orders", context.custKey, null, null, null, 30);
-    const newData = useFetch(newUrl, options, [newUrl], null, false);
+    console.log(url);
 
     if(data.response && !data.isLoading){
         orders = data.response;
-        if(orders.length === 0){
-            if(newData.response && !newData.isLoading){
-                orders = newData.response;
-            }
-        }
-    }
-
-    console.log(newData.response);
-
-
-    function handleFilterClick(e){
-        e.preventDefault();
-        setIsFilterMenuVisible(!isFilterMenuVisible);
     }
 
     function handleOrderClick(e){
@@ -75,7 +58,8 @@ export default function OrderSelector(){
 
      return (
          <div className="os__container">
-            <div className="os__search-container">
+             <OrderSearch  />
+            {/* <div className="os__search-container">
                 <input className="os__search-input" type="text" placeholder="search orders" />
                 <button className="os__search-btn" ><img className="os__search-logo" src={searchIcon} alt="Search"/></button>
             </div>
@@ -88,7 +72,7 @@ export default function OrderSelector(){
                 <li><input type="radio" /><div className="os__filter-label">2019</div></li>
                 <li><input type="radio" /><div className="os__filter-label">2018</div></li>
                 <li><input type="radio" /><div className="os__filter-label">2017</div></li>
-            </ul>
+            </ul> */}
             {orders.length === 0 ? <div>No recent orders found..</div> :
             <div className="os__orders-container">
                 {orders.map(x => {
