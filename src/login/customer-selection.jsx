@@ -13,7 +13,7 @@ export default function CustomerSelection(){
             context.setCustKey(input);
             history.push('/orders');
         }
-    }, [])
+    })
 
     function handleOnClick(){
         context.setCustKey(input);
@@ -32,6 +32,7 @@ export default function CustomerSelection(){
             <ul>
                 <li>66388 - Doms Refrigeration</li>
                 <li>5830 - Ambient Air</li>
+                <li>29301 - Ecotech </li>
             </ul>
         </div>
     )

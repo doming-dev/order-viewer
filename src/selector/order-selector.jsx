@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import './selector-styles.css';
 import {v4 as uuidv4 } from 'uuid';
 import nextLogo from './next-icon.png';
@@ -10,23 +10,60 @@ import AppContext from '../context/AppContext';
 import useFetch from '../hooks/useFetch';
 import AppSettings from '../AppSettings';
 import OrderSearch from './order-search';
+import OrderResults from './order-results';
 
 export default function OrderSelector(){
     const history = useHistory();
     const context = useContext(AppContext);
+    const [searchData, setSearchData] = useState({ keywords: null, start: null, end: null, count: 30})
+    const [url, setURL] = useState(AppSettings.GetOrdersURL("orders", context.custKey, searchData.start, searchData.end, searchData.keywords, searchData.count));
 
-    if(context.custKey === 0 || !context.custKey){
-        const custKey = localStorage.getItem("custKey");
-        if(!custKey)
-            history.push("/")
-        else
-            context.setCustKey(custKey);
+    useEffect(() => {
+        if(context.custKey === 0 || !context.custKey){
+            const custKey = localStorage.getItem("custKey");
+            if(!custKey)
+                history.push("/")
+            else
+                context.setCustKey(custKey);
+        }
+    })
+
+    useEffect(() => {
+        if(context.custKey === 0 || !context.custKey){
+            return;
+        }
+        const endpointURL = AppSettings.GetOrdersURL("orders", context.custKey, searchData.start, searchData.end, searchData.keywords, searchData.count);
+        setURL(endpointURL);
+        console.log(url);
+        console.log("SEARCH DATA: ", searchData);
+
+    }, [searchData])
+
+    useEffect(() => {
+        if(context.custKey === 0 || !context.custKey){
+            return;
+        }
+        const endpointURL = AppSettings.GetOrdersURL("orders", context.custKey, searchData.start, searchData.end, searchData.keywords, searchData.count);
+        setURL(endpointURL);
+    }, [context.custKey])
+
+    function Filter(daysBack, keywords){
+        if(daysBack > 0 && keywords){
+            setSearchData({ keywords: keywords, start: helper.GetDate(-daysBack), end: helper.GetDate(+1), count: null})
+            return;
+        }
+
+        if(daysBack > 0){
+            setSearchData({ keywords: null, start: helper.GetDate(-daysBack), end: helper.GetDate(+1), count: null})
+            return;
+        }
+
+        if(keywords){
+            setSearchData({ keywords: keywords, start: null, end: null, count: 30})
+            return;        
+        }
     }
 
-    // const start = helper.GetDate(-30);
-    // const end  = helper.GetDate(+1);
-
-    const url = AppSettings.GetOrdersURL("orders", context.custKey, null, null, null, 30);
     const options = {};
     options.headers = {};
     options.headers["Content-Type"] = "application/json";
@@ -34,86 +71,18 @@ export default function OrderSelector(){
     let orders = [];
 
     console.log(url);
+    console.log(data);
 
     if(data.response && !data.isLoading){
         orders = data.response;
     }
 
-    function handleOrderClick(e){
-        getId(e.target);
-    }
-
-    function getId(ele){
-        console.log("getting id for", ele);
-        if(!ele.id){
-            console.log("no id found, searching parent");
-            getId(ele.parentElement);
-        }
-        else{
-            console.log(ele.id);
-            history.push(`/OrderView/${ele.id}`);
-        }
-    }
-
+    const years = [2021, 2019, 2018, 2017];
 
      return (
          <div className="os__container">
-             <OrderSearch  />
-            {/* <div className="os__search-container">
-                <input className="os__search-input" type="text" placeholder="search orders" />
-                <button className="os__search-btn" ><img className="os__search-logo" src={searchIcon} alt="Search"/></button>
-            </div>
-            <a onClick={handleFilterClick} className="os__link "  href="/">Filter by date</a>
-            <ul className={isFilterMenuVisible ? " os__date-list os__visible" : "os__date-list os__hidden"}>
-                <li><input type="radio" /><div className="os__filter-label">Last 30 Days</div></li>
-                <li><input type="radio" /><div className="os__filter-label">Last 3 Months</div></li>
-                <li><input type="radio" /><div className="os__filter-label">2021</div></li>
-                <li><input type="radio" /><div className="os__filter-label">2020</div></li>
-                <li><input type="radio" /><div className="os__filter-label">2019</div></li>
-                <li><input type="radio" /><div className="os__filter-label">2018</div></li>
-                <li><input type="radio" /><div className="os__filter-label">2017</div></li>
-            </ul> */}
-            {orders.length === 0 ? <div>No recent orders found..</div> :
-            <div className="os__orders-container">
-                {orders.map(x => {
-                    return ( // start map
-                    <div onClick={handleOrderClick} className="os__order" key={x.OpKey} id={x.OpKey} >
-                        <div className="os__labels os__additional">
-                            <div>Order #</div>
-                            <div>Order Placed</div>
-                            <div>Purchase Order</div>
-                            <div className="os__additional">Ship to</div>
-                        </div>
-                        <div className="os__props">
-                            <div><b>OP-{x.OpKey}</b></div>
-                            <div>{helper.GetDateString(x.Created)}</div>
-                            <div>{x.PO ? `PO-${x.PO}` : ''}</div>
-                            <div className="os__additional">
-                                <a href="/" className="os__link">{x.ShipName}</a>
-                            </div>
-                        </div>
-                        <div className="os__items-container">
-                            {x.Items.map(i => {
-                                return ( // start item map
-                                <div className="os__item" key={uuidv4()}>
-                                    <img className="os__additional os__package-logo" src={packageLogo} alt=""></img>
-                                    <a className="os__link" href="/" >
-                                        ({i.Qty}) {i.PartNumber} - {i.Description}
-                                    </a>
-                                </div>
-                                ) // end item map
-                            })}
-                        </div>
-                        <img className="os__next-logo" src={nextLogo} alt=""/>
-                        <div className="os__additional os__button-list">
-                            <button className="os__button">View Order Details</button>
-                            <button className="os__button">Track Package</button>
-                            <button className="os__button">Get Help</button>
-                        </div>
-                    </div>
-                    ) // end map
-                })}
-            </div>}
+            <OrderSearch filterFunction={Filter} years={years} />
+            <OrderResults orders={orders} />
          </div>
      )
 }

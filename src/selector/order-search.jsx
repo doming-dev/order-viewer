@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import searchIcon from './search-icon.png';
 
-export default function OrderSearch(){
+export default function OrderSearch({ filterFunction, years }){
     const [isFilterMenuVisible, setIsFilterMenuVisible] = useState(false);
     const [selectedRadio, setSelectedRadio] = useState("");
 
@@ -15,6 +15,7 @@ export default function OrderSearch(){
         console.log(e.target.id);
     }
 
+
     return (
         <>
             <div className="os__search-container">
@@ -27,33 +28,25 @@ export default function OrderSearch(){
             <a onClick={handleFilterClick} className="os__link "  href="/">Filter by date</a>
             <ul className={isFilterMenuVisible ? " os__date-list os__visible" : "os__date-list os__hidden"}>
                 <li>
-                    <input name="filter" onChange={handleRadioChange} type="radio" value="30" />
-                    <div className="os__filter-label" >Last 30 Days</div>
+                    <input name="filter" id="30" onChange={handleRadioChange} type="radio" value="30" />
+                    <label for="30" className="os__filter-label" >Last 30 Days</label>
                 </li>
                 <li>
-                    <input name="filter" type="radio" />
-                    <div className="os__filter-label">Last 3 Months</div></li>
-                <li>
-                    <input name="filter" type="radio" />
-                    <div className="os__filter-label">2021</div>
+                    <input name="filter" id="90" onChange={handleRadioChange} value="90" type="radio" />
+                    <label for="90" className="os__filter-label">Last 3 Months</label>
                 </li>
-                <li>
-                    <input name="filter" type="radio" />
-                    <div className="os__filter-label">2020</div>
-                </li>
-                <li>
-                    <input name="filter" type="radio" />
-                    <div className="os__filter-label">2019</div>
-                </li>
-                <li>
-                    <input name="filter" type="radio" />
-                    <div className="os__filter-label">2018</div>
-                </li>
-                <li>
-                    <input type="radio" />
-                    <div className="os__filter-label">2017</div>
-                </li>
+
+                {years.map(yr => <li><FilterRadio radioChange={handleRadioChange} label={yr} groupName="filter" value={yr}/></li>)}
             </ul>
+        </>
+    )
+}
+
+function FilterRadio({radioChange, label, groupName, value }){
+    return (
+        <>
+            <input name={groupName} id={value} onChange={radioChange} value={value} type="radio" />
+            <label for={value} className="os__filter-label">{label}</label>
         </>
     )
 }
