@@ -1,0 +1,68 @@
+.nb__logo-background{
+    left: -170px;
+    top: -4px;
+    position: absolute;
+    width: 305px;
+    height: 64px;
+}
+
+.nb__logo{
+    left: 16px;
+    top: 6px;
+    position: absolute;
+    width: 225px;
+    height: 50px;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+.nb__logo-wrapper{
+    width: 160px;
+}
+
+.nb__container{
+    width: 100%;
+    height: 62px;
+    background-color: #1380b1;
+    box-shadow: 0px 2px 7px 0 rgba(0, 0, 0, 0.32);
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+    margin-bottom: 5px;
+    display:flex;
+    flex-direction: row;
+}
+
+.nb__header {
+    color: rgb(255, 255, 255);
+    margin: auto;
+    width: 80%;
+    font-size: 1.0rem;
+    display: flex;
+    justify-content: flex-start;
+    font-family: "Poppins";
+    font-weight: bold;
+  }
+
+@media all and (min-width: 500px){
+    .nb__logo-background{
+        left: -3px;
+        top: -4px;
+        position: absolute;
+        width: 305px;
+        height: 64px;
+    }
+
+    .nb__logo-wrapper{
+        width: 500px;
+    }
+
+    .nb__container{
+        margin-bottom: 10px;
+    }
+}
+
+@media all and (min-width: 700px){
+    .nb__logo-wrapper{
+        width: 400px;
+    }
+}

@@ -3,7 +3,6 @@ import {v4 as uuidv4 } from 'uuid';
 import nextLogo from './next-icon.png';
 import helper from '../viewer/helpers';
 import packageLogo from './package.png';
-import downLogo from './down.png';
 import { useHistory } from 'react-router-dom';
 
 export default function OrderResults({ orders }){
