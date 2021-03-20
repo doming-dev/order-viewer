@@ -4,7 +4,7 @@ import menuLogo from './menu.png';
 import custLogo from './customer.png';
 import { useLocation, useHistory } from 'react-router-dom';
 import AppContext from '../context/AppContext';
-import NavBar from '../navigation/nav-bar';
+import HeaderSection from '../header/header-section';
 
 
 export default function MainLayout({  children }){
@@ -58,7 +58,7 @@ export default function MainLayout({  children }){
 
     return (
         <div className="App">
-            <NavBar />
+            <HeaderSection />
             {context.custKey > 0 &&
             <div className="ml__nav-container">
                 <div className="ml__top" >

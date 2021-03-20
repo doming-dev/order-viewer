@@ -384,7 +384,6 @@ div[class*="-label"] {
 
 @media all and (min-width: 650px) {
   .ov__viewer-container{
-    background-color: rgb(231, 231, 231);
     width:80%;
     margin:auto;
     padding: 10px;
@@ -462,8 +461,7 @@ div[class*="-label"] {
 
 @media all and (min-width: 900px) {
   .ov__viewer-container{
-    background-color: rgb(231, 231, 231);
-    width:70%;
+    width:700px;
     margin:auto;
     padding: 10px;
   }
@@ -496,15 +494,3 @@ div[class*="-label"] {
   }
 }
 
-
-@media all and (min-width: 1200px) {
-  .ov__viewer-container{
-    width:60%;
-  }
-}
-
-@media all and (min-width: 1200px) {
-  .ov__viewer-container{
-    width:50%;
-  }
-}

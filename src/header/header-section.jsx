@@ -2,11 +2,11 @@ import React, { useContext, useState, useEffect } from 'react';
 import cpLogo from './logo-cp.svg';
 import cpLogoSmall from './logo-cp-mobile.svg';
 import logoBackground from './heading-background.svg';
-import './nav-styles.css';
+import './header-styles.css';
 import AppContext from '../context/AppContext';
 
 
-export default function NavBar(){
+export default function HeaderSection(){
     const context = useContext(AppContext);
     const [useFullLogo, setUseFullLogo] = useState(true);
     

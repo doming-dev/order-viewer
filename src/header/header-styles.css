@@ -34,11 +34,8 @@
 
 .nb__header {
     color: rgb(255, 255, 255);
-    margin: auto;
-    width: 80%;
+    margin-top:20px;
     font-size: 1.0rem;
-    display: flex;
-    justify-content: flex-start;
     font-family: "Poppins";
     font-weight: bold;
   }
@@ -53,16 +50,27 @@
     }
 
     .nb__logo-wrapper{
-        width: 500px;
+        width: 300px;
     }
 
     .nb__container{
         margin-bottom: 10px;
     }
+
+    .nb__header{
+        margin-left: 13px;
+    }
 }
 
 @media all and (min-width: 700px){
     .nb__logo-wrapper{
-        width: 400px;
+        width: 40%;
     }
 }
+
+@media all and (min-width: 900px){
+    .nb__logo-wrapper{
+        width: 45%;
+    }
+}
+
