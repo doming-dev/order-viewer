@@ -3,6 +3,7 @@
   height: 100%;
   padding-top: 10px;
   width:auto;
+  margin-bottom: 120px;
 }
 
 /* HEADERS / CAPTIONS */
@@ -13,7 +14,7 @@
 
 
 .ov__section{
-  margin-bottom: 20px;
+  margin-bottom: 8px;
 }
 
 img {
@@ -62,10 +63,9 @@ div[class*="grid"] {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  position:absolute;
+  position:fixed;
   bottom:0;
   width: 100%;
-
 }
 
 .sms-reply__link{
@@ -175,6 +175,7 @@ div[class*="-label"] {
 }
 
 .whse-field {
+  margin-bottom: 5px;
   grid-area: whse-field;
 }
 
@@ -419,6 +420,8 @@ div[class*="-label"] {
     justify-content: center;
     bottom:default;
     position: static;
+    margin:auto;
+    width:80%;
   }
   
   .sms-reply__link{
@@ -515,6 +518,10 @@ div[class*="-label"] {
 }
 
 @media all and (min-width: 900px) {
+  .sms-reply{
+    width: 700px;
+  }
+  
   .ov__viewer-container{
     width:700px;
     margin:auto;

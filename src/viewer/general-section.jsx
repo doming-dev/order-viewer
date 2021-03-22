@@ -32,8 +32,7 @@ export default function General({ order }) {
         </div>
         <div className="whse-label">Branch</div>
         <div className="whse-field">
-          {helper.GetWhseName(order.Warehouse)} <br />
-          <br />
+          {helper.GetWhseName(order.Warehouse)}
         </div>
 
         <div className="bill-label">Bill to</div>

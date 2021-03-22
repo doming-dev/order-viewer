@@ -44,23 +44,25 @@ export default function OrderViewer() {
   }, [order])
 
   return (
-    <div className="ov__viewer-container">
-      {data.error && <div>An error has occurred while trying to load your order</div>}
-      {data.isLoading && <div>Loading..</div>}
-      {data.response && 
-        <>
-            {/* <OrderNumber order={data.response}/> */}
-            <GeneralSection order={data.response} />
-            <ItemSection order={data.response} />
-            <PaymentSection order={data.response} />
-            {data.response.Shipments.length > 0 && <ShipmentSection order={data.response}/>}
-            {branch && 
-            <footer className="sms-reply">
-              <SmsReply caption="Approve" additionalClass="sms-reply__link--primary" href={messages.find(x => x.branchID === branch).approveSms} /> 
-              <SmsReply caption="Reply"  additionalClass="sms-reply__link" href={messages.find(x => x.branchID === branch).replySms} />
-            </footer>}
-        </>
-      }
-    </div>
+    <>
+      <div className="ov__viewer-container">
+        {data.error && <div>An error has occurred while trying to load your order</div>}
+        {data.isLoading && <div>Loading..</div>}
+        {data.response && 
+          <>
+              {/* <OrderNumber order={data.response}/> */}
+              <GeneralSection order={data.response} />
+              <ItemSection order={data.response} />
+              <PaymentSection order={data.response} />
+              {data.response.Shipments.length > 0 && <ShipmentSection order={data.response}/>}
+          </>
+        }
+      </div>
+      {branch && 
+      <footer className="sms-reply">
+        <SmsReply caption="Approve" additionalClass="sms-reply__link--primary" href={messages.find(x => x.branchID === branch).approveSms} /> 
+        <SmsReply caption="Reply"  additionalClass="sms-reply__link" href={messages.find(x => x.branchID === branch).replySms} />
+      </footer>}
+    </>
   );
 }
