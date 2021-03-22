@@ -58,6 +58,36 @@ div[class*="grid"] {
 }
 
 
+.sms-reply{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position:absolute;
+  bottom:0;
+  width: 100%;
+
+}
+
+.sms-reply__link{
+  background-color: #137fb1bd;
+  padding-top:6px;
+  color:white;
+  text-decoration: none;
+  border: 1px solid white;
+  height: 36px;
+}
+
+.sms-reply__link--primary{
+  color:white;
+  background-color: #1380b1;
+  border: 2px solid rgb(141, 219, 233);
+  height: 36px;
+  font-weight: bold;
+}
+
+
+
+
 /* GENERAL INFO */
 .ov__general-grid {
   text-align: start;
@@ -383,6 +413,31 @@ div[class*="-label"] {
 }
 
 @media all and (min-width: 650px) {
+  .sms-reply{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    bottom:default;
+    position: static;
+  }
+  
+  .sms-reply__link{
+    padding-top:6px;
+    color:white;
+    text-decoration: none;
+    border: 1px solid white;
+    height: 36px;
+    background-color: #137fb1bd
+  }
+
+  .sms-reply__link--primary{
+    color:white;
+    background-color: #1380b1;
+    border: 3px solid rgb(141, 219, 233);
+    height: 36px;
+    font-weight: bold;
+  }
+
   .ov__viewer-container{
     width:80%;
     margin:auto;

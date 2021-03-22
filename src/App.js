@@ -19,7 +19,7 @@ export default function App() {
               <Switch>
                   <Route exact path="/" component={CustomerSelection} />
                   <Route exact path="/orders" component={OrderSelector} />
-                  <Route exact path="/orderview/:op" component={OrderViewer} />
+                  <Route exact path="/orderview/:op/:branch?" component={OrderViewer} />
               </Switch>
           </MainLayout>
       </AppProvider>

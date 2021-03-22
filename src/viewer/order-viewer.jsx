@@ -8,11 +8,19 @@ import { useParams } from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
 import AppSettings from '../AppSettings';
 import AppContext from "../context/AppContext";
+import SmsReply from "./sms-reply";
 
 export default function OrderViewer() {
-  const { op } = useParams();
+  const { op, branch } = useParams();
   const context = useContext(AppContext);
   const [order, setOrder] = useState();
+
+  const messages = [
+    {branchID: "mpk", approveSms: `sms:+13237296000&body=Quote is approved!`, replySms:`sms:+13237296000`},
+    {branchID: "sea", approveSms: `sms:+13147399694&body=Quote is approved!`, replySms:`sms:+13147399694`},
+    {branchID: "stl", approveSms: `sms:+12538544900&body=Quote is approved!`, replySms:`sms:+12538544900`}
+  ]
+
 
   const url = AppSettings.GetOrderDetailURL(op);
   const options = {};
@@ -46,6 +54,11 @@ export default function OrderViewer() {
             <ItemSection order={data.response} />
             <PaymentSection order={data.response} />
             {data.response.Shipments.length > 0 && <ShipmentSection order={data.response}/>}
+            {branch && 
+            <footer className="sms-reply">
+              <SmsReply caption="Approve" additionalClass="sms-reply__link--primary" href={messages.find(x => x.branchID === branch).approveSms} /> 
+              <SmsReply caption="Reply"  additionalClass="sms-reply__link" href={messages.find(x => x.branchID === branch).replySms} />
+            </footer>}
         </>
       }
     </div>
