@@ -19,13 +19,13 @@ export default function PaymentSection({ order }) {
                 <div className="cc-field">{order.CreditCard}</div>
               </> : null
         }
-        {/* <div className="cc-label"></div>
-        <div className="cc-field">order.CreditCard</div> */}
         <div className="sub-label">Sub Total</div>
         <div className="sub-field">${helper.GetSubTotal(order.Items)} </div>
         <div className="tFreight-label">Freight</div>
         <div className="tFreight-field">
-          ${helper.GetTotalFreight(order.Shipments)}{" "}
+          {
+            order.SoKey ? `$${helper.GetTotalFreight(order.Shipments)}` : "TBD"
+          }
         </div>
         <div className="tax-label">Sales Tax</div>
         <div className="tax-field">${order.SalesTax.toFixed(2)} </div>
