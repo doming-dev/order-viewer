@@ -58,7 +58,7 @@ export default function OrderViewer() {
           </>
         }
       </div>
-      {branch && 
+      {branch && data.response && !data.isLoading &&
       <footer className="sms-reply">
         <SmsReply caption="Approve" additionalClass="sms-reply__link--primary" href={messages.find(x => x.branchID === branch).approveSms} /> 
         <SmsReply caption="Reply"  additionalClass="sms-reply__link" href={messages.find(x => x.branchID === branch).replySms} />

@@ -2,18 +2,20 @@ import "./styles.css";
 import "./viewer/order-viewer-styles.css";
 import React, { useContext } from "react";
 import OrderViewer from "./viewer/order-viewer";
-import Print from "./viewer/print";
 import OrderSelector from "./selector/order-selector";
-import { BrowserRouter, Route, Redirect, Switch, useHistory } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import MainLayout from './layout/main-layout';
 import AppProvider from './context/AppProvider';
 import CustomerSelection from "./login/customer-selection";
-import AppContext from './context/AppContext';
+import { createBrowserHistory } from 'history';
 
+export const history = createBrowserHistory({
+  basename: process.env.PUBLIC_URL
+});
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={'sms'}>
       <AppProvider>
         <MainLayout>
               <Switch>
@@ -24,7 +26,5 @@ export default function App() {
           </MainLayout>
       </AppProvider>
     </BrowserRouter>
-  
-    
   );
 }

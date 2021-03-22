@@ -69,7 +69,8 @@ div[class*="grid"] {
 }
 
 .sms-reply__link{
-  background-color: #137fb1bd;
+  /* background-color: #1380b1; */
+  background-color:  #0098DD;
   padding-top:6px;
   color:white;
   text-decoration: none;
@@ -79,8 +80,7 @@ div[class*="grid"] {
 
 .sms-reply__link--primary{
   color:white;
-  background-color: #1380b1;
-  border: 2px solid rgb(141, 219, 233);
+  background-color: #F06721;
   height: 36px;
   font-weight: bold;
 }
@@ -423,23 +423,6 @@ div[class*="-label"] {
     margin:auto;
     width:80%;
   }
-  
-  .sms-reply__link{
-    padding-top:6px;
-    color:white;
-    text-decoration: none;
-    border: 1px solid white;
-    height: 36px;
-    background-color: #137fb1bd
-  }
-
-  .sms-reply__link--primary{
-    color:white;
-    background-color: #1380b1;
-    border: 3px solid rgb(141, 219, 233);
-    height: 36px;
-    font-weight: bold;
-  }
 
   .ov__viewer-container{
     width:80%;
@@ -521,7 +504,7 @@ div[class*="-label"] {
   .sms-reply{
     width: 700px;
   }
-  
+
   .ov__viewer-container{
     width:700px;
     margin:auto;
